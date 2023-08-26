@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
-<أتش تي أم أل>
+<html>
 
-<الرأس>
-  <title> سيغريد </title>
-<نمط>
+<head>
+  <title> cygrid </title>
+<style>
 
   
   
@@ -13,112 +13,112 @@
   
   @import url("https://fonts.googleapis.com/css?family=Hind:300,400&display=swap");
 
-:جذر {
-  --نص اللون: hsl(248, 10%, 40%));
-  --color-text-muted: hsl(248, 10%, 40%));
-  --اللون الأرجواني: أزرق أردوازي؛
+:root {
+  --color-text: hsl(248, 10%, 40%);
+  --color-text-muted: hsl(248, 10%, 40%);
+  --color-purple: slateblue;
 }
 
 
 
-.جسم {
-  العرض: الشبكة؛
-  عناصر المكان: المركز؛
-  إخفاء الفائض؛
+.body {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
   /*
-  الحد الأدنى للارتفاع: 100vh؛ **/
-  اللون: فار(--لون النص);
+  min-height: 100vh; **/
+  color: var(--color-text);
   /*
-  الخلفية: HSL (248، 53٪، 95٪)؛
-  عائلة الخط: "Hind"، sans-serif؛*/
+  background: hsl(248, 53%, 95%);
+  font-family: "Hind", sans-serif;*/
 }
 
-.الأكورديون {
-  العرض: 40ريم؛
-  الحشو: 1.2ريم 0؛
- /* نصف قطر الحدود: 1rem؛
-  الخلفية: أبيض؛
-/* ظل الصندوق: 0 0 5rem lightgrey; */
+.accordion {
+  width: 40rem;
+  padding: 1.2rem 0;
+ /* border-radius: 1rem;
+  background: white;
+/*   box-shadow: 0 0 5rem lightgrey; */
 }
 
-.الأكورديون__العنوان {
-  الهامش السفلي: 1rem؛
-  الحشو: 0 1.4ريم؛
+.accordion__heading {
+  margin-bottom: 1rem;
+  padding: 0 1.4rem;
 }
 
 .accordion__item:not(:last-child) {
-  الحد السفلي: 1 بكسل رمادي فاتح خالص؛
+  border-bottom: 1px solid lightgrey;
 }
 
-.الأكورديون__btn {
-  العرض: فليكس؛
-  ضبط المحتوى: مسافة بين؛
-  محاذاة العناصر: مركز؛
-  العرض: 100%؛
-  الحشو: 1.2ريم 1.4ريم؛
-  الخلفية: أبيض؛
-  الحدود: لا شيء؛
-  الخطوط العريضة: لا شيء؛
-  اللون: فار(--لون النص);
-  حجم الخط: 1.2rem؛
-  محاذاة النص: يسار؛
-  المؤشر: المؤشر؛
-  الانتقال: 0.1 ثانية؛
+.accordion__btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  background: white;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  font-size: 1.2rem;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.1s;
 }
-.أكورديون__btn:تحوم {
-  اللون: فار(--اللون-أرجواني);
-  الخلفية: HSL (248، 53٪، 97٪)؛
+.accordion__btn:hover {
+  color: var(--color-purple);
+  background: hsl(248, 53%, 97%);
 }
 
 .accordion__item--active .accordion__btn {
-  اللون: فار(--اللون-أرجواني);
-  الحد السفلي: 2 بكسل صلب var(-color-purple);
-  الخلفية: HSL (248، 53٪، 97٪)؛
+  color: var(--color-purple);
+  border-bottom: 2px solid var(--color-purple);
+  background: hsl(248, 53%, 97%);
 }
 
-.فا المصباح {
-  الحشو الأيمن: 1rem؛
+.fa-lightbulb {
+  padding-right: 1rem;
 }
-.الأكورديون__icon {
-  نصف قطر الحدود: 50%؛
-  تحويل: تدوير (0 درجة)؛
-  الانتقال: سهولة الدخول والخروج بمقدار 0.3 ثانية؛
-  العتامة: 0.9؛
+.accordion__icon {
+  border-radius: 50%;
+  transform: rotate(0deg);
+  transition: 0.3s ease-in-out;
+  opacity: 0.9;
 }
 .accordion__item--active .accordion__icon {
-  تحويل: تدوير (135 درجة)؛
+  transform: rotate(135deg);
 }
 
-.الأكورديون__المحتوى {
-  وزن الخط: 300؛
-  أقصى ارتفاع: 0؛
-  العتامة: 0؛
-  إخفاء الفائض؛
-  اللون: فار(--لون النص-صامت);
-  تحويل: ترجمةX(16px);
-  الانتقال: الحد الأقصى للارتفاع 0.5 ثانية، السهولة، العتامة 0.5 ثانية، التحويل 0.5 ثانية؛
+.accordion__content {
+  font-weight: 300;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  color: var(--color-text-muted);
+  transform: translateX(16px);
+  transition: max-height 0.5s ease, opacity 0.5s, transform 0.5s;
 }
-.accordion__content ع {
-  الحشو: 1rem 1.8rem؛
+.accordion__content p {
+  padding: 1rem 1.8rem;
 }
 
 .accordion__item--active .accordion__content {
-  العتامة: 1؛
-  تحويل: ترجمة X (0px)؛
-  أقصى ارتفاع: 100vh؛
+  opacity: 1;
+  transform: translateX(0px);
+  max-height: 100vh;
 }
 
   
   
-  /*********************/
-  جسم{
-   عائلة الخط: "هند"، بلا رقيق؛
+  /********************/
+  body{
+   font-family: "Hind", sans-serif;
  
-  الخلفية: أليسبلو؛
+  background: aliceblue;
 
-    الهامش: 5 بكسل؛
+    margin:5px;
 
-    الحشو: 5 بكسل؛
+    padding: 5px;
 
     
 
@@ -126,318 +126,318 @@
 
   
 
-  .حاوية 1 {
-صورة الخلفية: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png");
+  .container1 {
+background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74452/website-post-its.png");
 
-    حجم الخلفية: الغلاف؛
+    background-size: cover;
 
-    مرفق الخلفية: ثابت؛
-    العرض: فليكس؛
+    background-attachment: fixed;
+    display: flex;
 
-    ضبط المحتوى: مركز؛
+    justify-content: center;
 
-    محاذاة العناصر: مركز؛
+    align-items: center;
 
-    الارتفاع: 20 فولت؛
+    height: 20vh;
 
-    لون الخلفية: rgba(0, 0, 255, 0.5); /* تجييل روضة الشفافية واللون هنا */
-
-  }
-
-
-
-  .نص {
-    عائلة الخط: "هند"، بلا رقيق؛
-    
-
-    محاذاة النص: مركز؛
-
-    اللون الابيض؛
-
-    حجم الخط: 24 بكسل؛
-
-    الحشو: 20 بكسل؛
-    
+    background-color: rgba(0, 0, 255, 0.5); /* ÊÚÏíá ÏÑÌÉ ÇáÔÝÇÝíÉ æÇááæä åäÇ */
 
   }
-  .محتوى النص {
-  ارتفاع الخط: 1.6 م؛
-  الهامش السفلي: 1em؛
-    عائلة الخط: "هند"، بلا رقيق؛
+
+
+
+  .text {
+    font-family: "Hind", sans-serif;
+    
+
+    text-align: center;
+
+    color: white;
+
+    font-size: 24px;
+
+    padding: 20px;
+    
+
+  }
+  .text-content {
+  line-height: 1.6em;
+  margin-bottom: 1em;
+    font-family: "Hind", sans-serif;
 }
-.محتوى النص .كبير {
-  حجم الخط: 2em؛
+.text-content .big {
+  font-size: 2em;
 }
 
-.كبير {
-	وزن الخط: 800؛
+.big {
+	font-weight:800;
 }
-زر {
-  عائلة الخطوط: 'Open Sans'، sans-serif؛
-	وزن الخط: 800؛
-  الخلفية: لا شيء؛
-  الحدود: 1 بكسل أبيض خالص؛
-  -moz-border-radius: 5px؛
-  -webkit-border-radius: 5px؛
-  نصف قطر الحدود: 5 بكسل؛
-  العرض: 15 م؛
-  الحشو: 0.7م؛
-  حجم الخط: 0.5em؛
-  -moz-transition: كل 0.2 ثانية سهلة؛
-  -o-transition: كل 0.2 ثانية سهلة؛
-  -انتقال webkit: سهولة خروج كل 0.2 ثانية؛
-  الانتقال: كل 0.2 ثانية سهلة؛
-  زخرفة النص: لا شيء؛
-  اللون الابيض؛
-  العرض: كتلة مضمنة؛
-	المؤشر: المؤشر؛
+button {
+  font-family: 'Open Sans', sans-serif;
+	font-weight:800;
+  background: none;
+  border: 1px solid white;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 15em;
+  padding: 0.7em;
+  font-size: 0.5em;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+	cursor: pointer;
 }
-زر: تحوم {
-  زخرفة النص: لا شيء؛
-  لون الخلفية: أبيض؛
-  لون الحدود: أبيض؛
-	المؤشر: المؤشر؛
+button:hover {
+  text-decoration: none;
+  background-color: white;
+  border-color: white;
+	cursor: pointer;
 }
-زر: تحوم {
-  لون أزرق؛
+button:hover {
+  color: blue;
 }
 
- الخلفية: أليسبلو؛
+ background: aliceblue;
 }
 
 .imga{
-أعلى المارجان: 24 بكسل ؛
+margan-top: 24px ;
 }
     
-      /*********/
+      /********/
       
-      :جذر {
-  --clr-primary: أزرق مخضر؛
-  --clr-ثانوي: قرمزي؛
+      :root {
+  --clr-primary: teal;
+  --clr-secondary: crimson;
   
   --bg-primary: #0d1a2d;
-  --bg-ثانوي: #eeeeee;
+  --bg-secondary:   #eeeeee;
   
-  --نص أساسي: #3d85c6;
-  --نص ثانوي:أسود؛
+  --text-primary: #3d85c6;
+  --text-secondary:black  ;
 }
       
-      .بطاقة المنزل {
+      .home-card {
         /*
-      عائلة الخطوط: واجهة مستخدم النظام، بلا serif؛**/
-  الحد الأدنى للارتفاع: 100vh؛
+      font-family: system-ui, sans-serif;**/
+  min-height: 100vh;
   /**
-  لون الخلفية: var(--bg-primary);**/
-  اللون: فار(-نص-ثانوي);
+  background-color: var(--bg-primary);**/
+  color: var(--text-secondary);
 }
 
      
 
 
-أول: أين([دور = قائمة"]) {
-  نمط القائمة: لا شيء؛
-  الهامش: 0;
-  الحشو: 0؛
+ul:where([role="list"]) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-قسم {
-  كتلة الحشو: المشبك (2rem، 5vw، 5rem)؛
+section {
+  padding-block: clamp(2rem, 5vw, 5rem);
 }
 
-أ {
-  اللون: سماوي؛
-  زخرفة النص: لا شيء؛
+a {
+  color: cyan;
+  text-decoration: none;
 }
 
-.حاوية {
-  العرض: الحد الأدنى (100% - 2 ريم، 65 ريم)؛
-  الهامش المضمن: تلقائي؛
+.container {
+  width: min(100% - 2rem, 65rem);
+  margin-inline: auto;
 }
 
-.شبكة {
-  العرض: الشبكة؛
-  الفجوة: 1.5ريم؛
-  أعمدة قالب الشبكة:
-    كرر (الاحتواء التلقائي، الحد الأدنى (min(35ch، 100%)، 1fr));
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 
+    repeat(auto-fit, minmax(min(35ch, 100%), 1fr));
 }
 
-.عنوان القسم {
-  حجم الخط: المشبك (2rem، 5vw، 3rem)؛
-  محاذاة النص: مركز؛
-  وزن الخط: غامق؛
-  اللون: فار(--نص أساسي);
-  الهامش السفلي: 0.5م؛
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.5em;
 }
 
-.فليكس المجموعة {
-  العرض: فليكس؛
-  الفجوة: 1ريم؛
-  التفاف المرن: التفاف؛
-  محاذاة العناصر: مركز؛
+.flex-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-محتوى التدفق {
-  العرض: الشبكة؛
-  محاذاة المحتوى: البداية؛
-  الفجوة: 1ريم؛
+.flow-content {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
 }
 
-[تباعد البيانات = "sm"] {
-  الفجوة: 0.25ريم؛
+[data-spacing="sm"] {
+  gap: 0.25rem;
 }
 
-.mx-تلقائي {
-  العرض: محتوى مناسب؛
-  الهامش المضمن: تلقائي؛
+.mx-auto {
+  width: fit-content;
+  margin-inline: auto;
 }
 
-/* يبدأ هنا */
-.بطاقة {
-  العرض: الشبكة؛
-  الفجوة: 0.5ريم؛
+/* starts here */
+.card {
+  display: grid;
+  gap: 0.5rem;
   
-  الموقف: نسبي؛
-  إخفاء الفائض؛
+  position: relative;
+  overflow: hidden;
   
-  العرض: الحد الأدنى (100% - 2ريم، 35 قناة)؛
-  الهامش المضمن: تلقائي؛
-  نصف قطر الحدود: 0.5rem؛
+  width: min(100% - 2rem, 35ch);
+  margin-inline: auto;
+  border-radius: 0.5rem;
   
-  لون الخلفية: فار(--bg-ثانوي);
-  محاذاة النص: مركز؛
+  background-color: var(--bg-secondary);
+  text-align: center;
 }
 
-.اسم البطاقة {
-  وزن الخط: 700؛
-  اللون: فار(--نص أساسي);
+.card__name {
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
-.card__موقف {
-  نمط الخط: مائل؛
+.card__position {
+  font-style: italic;
 }
 
 .card__img {
-  العرض: 5ريم؛
-  نسبة العرض إلى الارتفاع: 1 / 1؛
-  ملاءمة الكائن: الغطاء؛
-  نصف قطر الحدود: 50%؛
-  الحدود: 2 بكسل صلب var(-text- Secondary);
+  width: 5rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--text-secondary);
 }
 
 .card__front {
-  الحشو: 2em 2em 2.5em 2em؛
-  انتقال:
-    التعتيم 250 مللي ثانية سهولة ،
-    تحويل 450 مللي ثانية بسهولة؛
+  padding: 2em 2em 2.5em 2em;
+  transition: 
+    opacity 250ms ease,
+    transform 450ms ease;
 }
 
 .card[data-visible="false"] .card__front {
-  العتامة: 1؛
-  تحويل: ترجمة Y(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card__footer {
-  الموقف: نسبي؛
-  الارتفاع: 1.5ريم؛
-  لون الخلفية: var(--bg-primary);
-  مؤشر z: 5؛
+  position: relative;
+  height: 1.5rem;
+  background-color: var(--bg-primary);
+  z-index: 5;
 }
 
 .card__back {
-  الموقف: مطلق؛
-  الحشو: 2em 2em 2.5em 2em؛
-  أقحم: 0؛
-  انتقال:
-    تحويل 450 مللي ثانية بسهولة ،
-    التعتيم 150 مللي ثانية سهولة ؛
-  مؤشر z: 1؛
-  الفائض: تلقائي؛
+  position: absolute;
+  padding: 2em 2em 2.5em 2em;
+  inset: 0;
+  transition: 
+    transform 450ms ease,
+    opacity 150ms ease;
+  z-index: 1;
+  overflow: auto;
 }
 
 .card[data-visible="false"] .card__back {
-  العتامة: 0؛
-  تحويل: ترجمة Y (100٪)؛
+  opacity: 0;
+  transform: translateY(100%);
 }
 
 .card[data-visible="true"] .card__front {
-  العتامة: 0؛
-  تحويل: ترجمة Y (100٪)؛
-  انتقال:
-    التعتيم 150 مللي ثانية سهولة ،
-    تحويل 450 مللي ثانية بسهولة 50 مللي ثانية ؛
+  opacity: 0;
+  transform: translateY(100%);
+  transition: 
+    opacity 150ms ease,
+    transform 450ms ease 50ms;
 }
 
 .card[data-visible="true"] .card__back {
-  العتامة: 1؛
-  تحويل: ترجمة Y(0);
-  انتقال:
-    تحويل 350 مللي ثانية بسهولة ،
-    العتامة 450 مللي ثانية سهولة 100 مللي ثانية ؛
+  opacity: 1;
+  transform: translateY(0);
+  transition: 
+    transform 350ms ease,
+    opacity 450ms ease 100ms;
 }
 
-.card__الاجتماعي {
-  ضبط المحتوى: مركز؛
-  الهامش السفلي: 2em؛
+.card__social {
+  justify-content: center;
+  margin-bottom: 2em;
 }
 
 .card__toggle {
-  محاذاة النص: 1؛
-  نصف قطر الحدود: 50%؛
-  العرض: 3ريم؛
-  نسبة العرض إلى الارتفاع: 1 / 1؛
-  الحشو: 0.5 م؛
-  الحدود: 0؛
-  لون الخلفية: var(--clr-primary);
-  اللون: فار(--نص أساسي);
+  text-align: 1;
+  border-radius: 50%;
+  width: 3rem;
+  aspect-ratio: 1 / 1;
+  padding: 0.5em;
+  border: 0;
+  background-color: var(--clr-primary);
+  color: var(--text-primary);
   
-  الموقف: مطلق؛
-  أسفل: 0؛
-  اليسار: 50%؛
-  تحويل: ترجمة X (-50٪)؛
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   
-  المؤشر: المؤشر؛
-  الانتقال: سهولة لون الخلفية بمقدار 250 مللي ثانية؛
+  cursor: pointer;
+  transition: background-color 250ms ease;
 }
 
-.card__toggle-أيقونة {
-  الانتقال: تدوير 250 مللي ثانية بسهولة؛
+.card__toggle-icon {
+  transition: rotate 250ms ease;
 }
 
 .card[data-visible="true"] .card__toggle {
-  لون الخلفية: فار(--clr-ثانوي);
+  background-color: var(--clr-secondary);
 }
 
 .card[data-visible="true"] .card__toggle-icon {
-  تدوير: 315 درجة؛
+  rotate: 315deg;
 }
   
   
   
-  /*********/
+  /********/
   
-.حاوية الصورة img {
-  العرض: كالك (100% - 30 بكسل)؛ /* 15 بكسل على كل جانب */
-  الهامش: 5px تلقائي؛ /* 5 بكسل في الأعلى */
-  العرض محجوب؛
+.image-container img {
+  width: calc(100% - 30px); /* 15px on each side */
+  margin: 5px auto; /* 5px on the top */
+  display: block;
 }
 
   /*****
   
   
-   .نص على غرار {
-  ارتفاع الخط: 1؛ /* تعرّف على المزيدالقطر لعله أكتر سورة
-  الهامش: 20 بكسل؛ /* صلاة هامش لول الان لتتصيدين التميم
+   .styled-text {
+  line-height: 1; /* ÊÚÏíá ÇÑÊÝÇÚ ÇáÓØÑ áÌÚáå ÃßËÑ ÞÑÇÁÉ 
+  margin: 20px; /* ÅÖÇÝÉ åÇãÔ Íæá ÇáäÕ áÊÍÓíä ÇáÊÕãíã 
 }
 
-.نص على غرار ع {
-  الهامش السفلي: 20 بكسل؛ /* رياضة المشاهدة بين الفخارات
+.styled-text p {
+  margin-bottom: 20px; /* ÒíÇÏÉ ÇáãÓÇÝÉ Èíä ÇáÝÞÑÇÊ
 }**/
 
-</نمط>
+</style>
 
-</الرأس>
+</head>
 
-<الجسم>
+<body>
 
 
   <div class="container1">
@@ -445,14 +445,14 @@
     <div class="text">
 
      <div class='text-content'>
-      <div class="bold0">يجب أن يستخدمه المصمم في عام 2023
+      <div class="bold0">designer should use in 2023
      </div>
-      <div class='big' style =" حجم الخط: المشبك(2rem, 5vw, 3rem) ;
-        وزن الخط: غامق؛ عائلة الخط: "هند"، بلا رقيق؛
+      <div class='big' style ="  font-size: clamp(2rem, 5vw, 3rem) ;
+        font-weight: bold;                       font-family: "Hind", sans-serif;
                                
                                "
                                
-                               > أفضل أداة لكل </div>
+                               > The best tool every </div>
     </div>
        
 
@@ -462,7 +462,7 @@
   <!--------->
   
     <div class="image-container">
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5c5t0uvMpQpzfkiLX6rFqZpPaA6rTnkPRpEhPcvkynA0TDY7KQq8W3GUhIHyS_gWf8WOOWsAnZg0mEHQ8vNX1D3PY- aR-WdToyjF5dFiczzLLVfAcL459v21am4aCnBWOlKQX7-APKeJZXQwCEfHIvj8j7gucx9c5m-mKwjWZhXEjPyRN2iWADfq5fHD/s1600/envatoe.PNG" alt="Envato">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5c5t0uvMpQpzfkiLX6rFqZpPaA6rTnkPRpEhPcvkynA0TDY7KQq8W3GUhIHyS_gWf8WOOWsAnZg0mEHQ8vNX1D3PY-aR-WdToyjF5dFiczzLLVfAcL459v21am4aCnBWOlKQX7-APKeJZXQwCEfHIvj8j7gucx9c5m-mKwjWZhXEjPyRN2iWADfq5fHD/s1600/envatoe.PNG" alt="Envato ">
   </div>
 
 
@@ -477,10 +477,10 @@
   
   
   
-<!--الراعي--
+<!-- herder --
   <div class="header">
   <div class="logo">
-  <img src="https://blogger.googleusercontent.com/img/a/AVvXsEip8dXwKofSmrdpcNlVW9TsYzXHJJY10z7M9FUqZwErihWem56gZY2sEIYVc72ZSm6ycp8p2-iJ8lxpX_hxksRCCJbVLMI2JDZF8aw xrb47YHotbg8gyzVQPVDT9C8H0A67ubGuXt64VWj9qqQ2vRnRnOr3qRvuIeNcwardtqMTAg8vltd58sMpCObYfQf6=w200" alt="logo ">
+  <img src="https://blogger.googleusercontent.com/img/a/AVvXsEip8dXwKofSmrdpcNlVW9TsYzXHJJY10z7M9FUqZwErihWem56gZY2sEIYVc72ZSm6ycp8p2-iJ8lxpX_hxksRCCJbVLMI2JDZF8awxrb47YHotbg8gyzVQPVDT9C8H0A67ubGuXt64VWj9qqQ2vRnRnOr3qRvuIeNcwardtqMTAg8vltd58sMpCObYfQf6=w200" alt="logo ">
 
 
   </div>
@@ -488,9 +488,9 @@
   </div>
   
 
-<!---الراعي--
+<!---herder--
 
-<p></p><div style="text-align: center; Margin-left: 55px" ; الهامش العلوي: 65px" ;><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5c5t0uvMpQpzfkiLX6rFqZpPaA6rTnkPRpEhPcvkynA0TDY7KQq8W3GUhIHyS_gWf8WOOWsAnZg0mEHQ8 vNX1D3PY-aR-WdToyjF5dFiczzLLVfAcL459v21am4aCnBWOlKQX7-APKeJZXQwCEfHIvj8j7gucx9c5m-mKwjWZhXEjPyRN2iWADfq5fHD/s269/envatoe.PNG" style =" هامش: 0 تلقائي;"><img border="0" data-original-height="163" data-original-width="269" height="163" src="https://blogger.googleusercontent.com/img/ b/R29vZ2xl/AVvXsEjZ5c5t0uvMpQpzfkiLX6rFqZpPaA6rTnkPRpEhPcvkynA0TDY7KQq8W3GUhIHyS_gWf8WOOWsAnZg0mEHQ8vNX1D3PY-aR-WdToyjF5dFiczzLLVfAcL459v2 1am4aCnBWOlKQX7-APKeJZXQwCEfHIvj8j7gucx9c5m-mKwjWZhXEjPyRN2iWADfq5fHD/s1600/envatoe.
+<p></p><div style="text-align: center;  margin-left: 55px" ; margin-top: 65px" ; ><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5c5t0uvMpQpzfkiLX6rFqZpPaA6rTnkPRpEhPcvkynA0TDY7KQq8W3GUhIHyS_gWf8WOOWsAnZg0mEHQ8vNX1D3PY-aR-WdToyjF5dFiczzLLVfAcL459v21am4aCnBWOlKQX7-APKeJZXQwCEfHIvj8j7gucx9c5m-mKwjWZhXEjPyRN2iWADfq5fHD/s269/envatoe.PNG" style=" margin: 0 auto;"><img border="0" data-original-height="163" data-original-width="269" height="163" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZ5c5t0uvMpQpzfkiLX6rFqZpPaA6rTnkPRpEhPcvkynA0TDY7KQq8W3GUhIHyS_gWf8WOOWsAnZg0mEHQ8vNX1D3PY-aR-WdToyjF5dFiczzLLVfAcL459v21am4aCnBWOlKQX7-APKeJZXQwCEfHIvj8j7gucx9c5m-mKwjWZhXEjPyRN2iWADfq5fHD/s1600/envatoe.PNG" width="269" /></a></div><div style="text-align: center>
 -->
 
     
@@ -499,7 +499,7 @@
 
     
   
-   </p><p style="text-align: left;">أولاً، يبدو أن ضغط الوقت هو خصمه. كان يعمل دائمًا ضمن إطار زمني محدود، مما جعله يشعر بأن إبداعه مقيد.</p><p style="text-align: left;">في كل مرة حاول أن يجد الإلهام، كان يشعر بحاجز إبداعي أمامه له.</p><p style="text-align: left;">يكافح جيك من أجل التفوق والبقاء في المقدمة. المنافسة شرسة، والجميع يهدف إلى التفرد.</p><p style="text-align: left;">إنه يدرك أهمية الابتكار المستمر، حيث أن تكرار نفس الأفكار لن يستمر.</p> <p style="text-align: left;">وعندما سُئل عن التغلب على التحديات التي واجهها، كانت إجابته:</p><p style="text-align: left;">"هل حاولت استخدام المكتبات الجاهزة؟ ماذا يعني هذا!</p><p style="text-align: left;">عليك أن تعرف أن المكتبات الجاهزة مفيدة لك، سواء كنت مبتدئًا أو محترفًا.</p> <p style="text-align: left;">تعد هذه المكتبات مستودعًا غنيًا بالموارد والأدوات التي يمكنك تنزيلها واستخدامها مباشرة، مما يوفر الوقت والجهد في عمليات التصميم والإبداع.</p><p style=" text-align: left;">لذا، تظل المكتبة الجاهزة واحدة من أفضل الاستثمارات التي يمكن أن يقوم بها المرء في حياته، حيث تسد الفجوة بين البدء من الصفر والاحتراف.</p><p style="text-align : left;">إنه يمكّنك من إنشاء تصميمات احترافية وعناصر جذابة دون بناء كل شيء من الصفر. عند البحث عن أفضل المكتبات الجاهزة، ستجد آلاف المواقع المتاحة.</p><p style="text-align: left;">ونظرًا لأن هذه المكتبات الجاهزة مفيدة للغاية ومستخدمة على نطاق واسع، قمنا بإعداد دليل شامل لك لتعتمد عليه في اختيار أفضل مكتبة تناسبك!</p><p style="text-align: left;">قبل أن نتعمق في "Envato Elements" ونتعرف على كل شيء مميزاتها وعيوبها، دعونا أولا نلقي نظرة على أفضل المكتبات بناء على الأصوات العالمية والمعايير المتنوعة.</p><p style="text-align: left;">"Envato Elements" تتفوق من حيث التنوع والجودة . إنه يقدم مجموعة واسعة من العناصر مثل الصور عالية الجودة والأيقونات المذهلة والقوالب المبتكرة والمؤثرات الصوتية المذهلة والمزيد.
+   <p style="text-align: left;padding-top: -15px; ">   Benefit from every opportunity that continuously places you in the best ranks.</p><p style="text-align: left;">Jake, aged 27, a graphic designer nicknamed "Harper" from Houston.</p><p style="text-align: left;">Jake heard about the field of graphic design and wanted to explore it, as he found his passion in it.</p><p style="text-align: left;">He worked hard, learned, and understood everything related to graphic design until he excelled in this field.</p><p style="text-align: left;">Today, Jake designs numerous creations from scratch for his clients.</p><p style="text-align: left;">Designer Jake faced numerous obstacles on his journey.</p><p style="text-align: left;">Firstly, time pressure seemed to be his opponent. He always worked within a limited timeframe, which made him feel restricted in his creativity.</p><p style="text-align: left;">Every time he tried to find inspiration, he felt a creative barrier in front of him.</p><p style="text-align: left;">Jake struggles to excel and stay ahead. The competition is fierce, and everyone aims for uniqueness.</p><p style="text-align: left;">He understands the importance of continuous innovation, as repeating the same ideas won't sustain.</p><p style="text-align: left;">When asked about overcoming the challenges he faced, his answer was:</p><p style="text-align: left;">"Have you tried using ready-made libraries? What does this mean!</p><p style="text-align: left;">You need to know that ready-made libraries are useful for you, whether you're a beginner or a professional.</p><p style="text-align: left;">These libraries are a rich repository of resources and tools that you can download and use directly, saving time and effort in design and creativity processes.</p><p style="text-align: left;">So, a ready-made library remains one of the best investments one can make in their life, bridging the gap between starting from scratch and professionalism.</p><p style="text-align: left;">It enables you to create professional designs and appealing elements without building everything from scratch.</p><p style="text-align: left;"><b><span style="color: #0078e8;">What makes these ready-made libraries beautiful is their ability to change your life by 180 degrees in the field of graphic design.</span></b></p><p style="text-align: left;">Because they help speed up development and design processes, enhancing your project's quality in less time!</p><p style="text-align: left;">But at the same time, you might have a question: What's the best library to purchase?</p><p style="text-align: left;">The best advice I can generally give in response to this question is: Learn from someone who has already achieved the same results you want to achieve!</p><p style="text-align: left;">And of course, when looking for the best ready-made libraries, you'll find thousands of available websites.</p><p style="text-align: left;">Given that these ready-made libraries are highly beneficial and widely used, we've prepared a comprehensive guide for you to rely on in choosing the best library that suits you!</p><p style="text-align: left;">Before we delve into "Envato Elements" and learn about all its advantages and drawbacks, let's first take a look at the best libraries based on global votes and various criteria.</p><p style="text-align: left;">"Envato Elements" excels in terms of diversity and quality. It offers a wide range of items like high-quality images, stunning icons, innovative templates, amazing sound effects, and more.</p><p style="text-align: left;">Users enjoy unlimited access to this comprehensive library, making it easy for them to significantly enhance the quality of their work.</p><h2>
     
     
     
@@ -508,176 +508,176 @@
    
    </div>
    <p style="text-align: left;"> </p><h2><span style="color: #0078e8
-     ;"><div style="text-align: center; حجم الخط: 1.2rem؛ وزن الخط: 800؛ ">ما هي "Envato Elements"؟</div></span></h2><p style="text-align: left;">"Envato Elements" هي خدمة اشتراك تتيح لك الوصول إلى أكثر من 54 مليون مستخدم الأصول الرقمية بتكلفة منخفضة.</p><p style="text-align: left;">من خلال الانضمام إلى "Envato Elements"، ستتاح لك الفرصة لتنزيل الملايين من القوالب المذهلة ومقاطع الفيديو المثيرة والخطوط الجذابة، صور استثنائية والمزيد.</p><p style="text-align: left;"><span style="color: #ffa400;"><br /></span></p><h2 style ="text-align: center;"><span style="color: #0078e8
-     ; حجم الخط: 1.2rem؛ وزن الخط: 800؛ ">مزايا "Envato Elements"</span></h2><p style="text-align: left;"><br /></p><p style="text-align: left;">العناصر تساهم المنصة في حل التحديات الكبيرة التي يواجهها هؤلاء المبدعون، بما في ذلك ضيق الوقت والحاجة المستمرة للإبداع.</p><p style="text-align: left;">من خلال توفير مكتبة شاملة من الأصول الإبداعية مثل الصور ومقاطع الفيديو، الموسيقى والمؤثرات الصوتية، يمكن للمصممين توفير قدر كبير من الوقت في البحث والاختيار، مما يمكنهم من التركيز على الجانب الإبداعي لمشاريعهم.</p><p style="text-align: left;">علاوة على ذلك، تعالج "Envato Elements" مسألة قلة الإلهام، مما يسمح للمصممين باستكشاف مجموعة متنوعة من الأعمال والأفكار المبتكرة المتوفرة على المنصة لتحفيز خيالهم وتوجيههم نحو إنشاء مشاريع جديدة ومثيرة.</p><p style="text-align: left;">هناك جانب آخر مهم وهو تقديم مجموعة واسعة من الأساليب والأساليب. يساعد ذلك المصممين على تطوير مهاراتهم وتجربة أشكال التصميم المتنوعة، مما يسمح لهم بتقديم أعمال متنوعة وجديدة باستمرار.</p><p style="text-align: left;">مع المحتوى المتنوع المتوفر وتوفير الوقت و ومن خلال تقليل الجهد المبذول، تتاح للمصممين الفرصة للتركيز على تنفيذ أفكارهم بدلاً من الحصول على عناصر من مصادر متعددة. يؤدي ذلك إلى تحسين الإنتاجية وتقليل التكاليف المرتبطة بشراء العناصر بشكل منفصل.</p><p style="text-align: left;">علاوة على ذلك، فإن توفير الوصول إلى مجموعة واسعة من الأدوات والموارد يعزز التنوع في العمل ويساهم في تطوير مهارات المصممين.</p><p style="text-align: left;"><br / </p><h2 style="text-align: center;"><span style="font-size: 1.2rem; وزن الخط: 800؛ color:#0078e8 ;">هل تؤثر تكلفة الاشتراك على دخلك الشهري؟</span></h2><p style="text-align: left;"><br /></p><p style=" text-align: left;">في الواقع، تعتبر التكلفة أحد الاعتبارات المهمة ويجب أن تؤخذ على محمل الجد. ولكن هل تعلم أن تكلفة الاشتراك في "Envato Elements" يمكن أن تكون استثمارًا ذكيًا في مستقبلك المهني؟ قبل أن تقلق بشأن ذلك وتأثيرها على دخلك الشهري، دعونا نلقي نظرة على المزايا التي تأتي مع هذا الاشتراك.</p><p style="text-align: left;">.</p><p style="text-align: left;">شكرًا لـ " عند الاشتراك في Envato Elements، ستحصل على وصول غير محدود إلى مكتبة ضخمة من العناصر الجاهزة مثل القوالب والصور عالية الجودة ومقاطع الفيديو المذهلة والأيقونات المبتكرة والمزيد.</p><p style="text-align: left;">يمكن أن توفر لك هذه العناصر ساعات لا حصر لها من العمل والجهد في عمليات التصميم والإبداع. ببساطة، إذا قمت بحساب الوقت الذي تم توفيره باستخدام القوالب والموارد الجاهزة بدلاً من إنشاء كل شيء من الصفر، فإن القيمة التي تحصل عليها من الاشتراك لا تقدر بثمن تقريبًا.</p><p style="text-align: left; ">الآن،
+     ;"><div style="text-align: center;     font-size: 1.2rem; font-weight: 800; ">What is "Envato Elements"?</div></span></h2><p style="text-align: left;">"Envato Elements" is a subscription service that gives you access to over 54 million digital assets at a low cost.</p><p style="text-align: left;">By joining "Envato Elements," you'll have the opportunity to download millions of stunning templates, exciting videos, attractive fonts, exceptional images, and more.</p><p style="text-align: left;"><span style="color: #ffa400;"><br /></span></p><h2 style="text-align: center;"><span style="color: #0078e8
+     ;  font-size: 1.2rem; font-weight: 800; ">Advantages of "Envato Elements</span></h2><p style="text-align: left;"><br /></p><p style="text-align: left;">The platform contributes to solving significant challenges these creatives face, including time constraints and the constant need for creativity.</p><p style="text-align: left;">By providing a comprehensive library of creative assets like images, videos, music, and sound effects, designers can save a substantial amount of time in searching and selecting, enabling them to focus on the creative aspect of their projects.</p><p style="text-align: left;">Moreover, "Envato Elements" addresses the issue of lack of inspiration, allowing designers to explore a variety of works and innovative ideas available on the platform to stimulate their imagination and guide them towards creating new and exciting projects.</p><p style="text-align: left;">Another important aspect is offering a wide range of styles and approaches. This helps designers develop their skills and experiment with diverse design forms, allowing them to consistently present varied and fresh works.</p><p style="text-align: left;">With the diverse available content, time savings, and effort reduction, designers have the opportunity to concentrate on implementing their ideas rather than sourcing elements from multiple sources. This enhances productivity and reduces costs associated with purchasing items separately.</p><p style="text-align: left;">Furthermore, providing access to a wide array of tools and resources promotes diversity in work and contributes to the development of designers' skills.</p><p style="text-align: left;"><br /></p><h2 style="text-align: center;"><span style="font-size: 1.2rem; font-weight: 800; color:#0078e8  ;">Does the subscription cost impact your monthly income?</span></h2><p style="text-align: left;"><br /></p><p style="text-align: left;">In reality, the cost is an important consideration and should be taken seriously. But did you know that the cost of subscribing to "Envato Elements" could be a smart investment in your professional future? Before worrying about its impact on your monthly income, let's look at the benefits that come with this subscription.</p><p style="text-align: left;">.</p><p style="text-align: left;">Thanks to the "Envato Elements" subscription, you'll gain unlimited access to a massive library of ready-made items like templates, high-quality images, stunning videos, innovative icons, and more.</p><p style="text-align: left;">These items can save you countless hours of work and effort in design and creativity processes. Simply put, if you calculate the time saved by using templates and ready-made resources instead of creating everything from scratch, the value you get from the subscription is nearly priceless.</p><p style="text-align: left;">Now, let's compare the monthly subscription cost of "Envato Elements" with the benefits it can offer.</p><p style="text-align: left;">If you carefully consider the benefits included in the extensive library of ready-made items and how they can help you enhance your work's quality and save time, you'll find that the subscription can be a well-directed investment.</p><div style="text-align: left;"><br /></div>
   
   
-   <ر>
+   <br>
    
-   <ر>
+   <br>
    <div style="width: calc(100% - 30px);  
-               محاذاة النص: مركز؛
+               text-align: center;
                
-  العرض محجوب؛ "><iframeallow="مقياس التسارع; تشغيل تلقائي؛ الكتابة في الحافظة؛ الوسائط المشفرة؛ جيروسكوب؛ صور في صور؛ مشاركة الويب"allowfullscreen=""frameborder="0" height="315" src="https://www.youtube.com/embed/vGR1WWDS2aI" title="مشغل فيديو YouTube" width="560"></ iframe></div>
+  display: block;   "><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/vGR1WWDS2aI" title="YouTube video player" width="560"></iframe></div>
 
 
    
    
-   <ر>
+   <br>
    
-   <ر>
-   <p style="text-align: center;"> <a class="bee-button-content" href="https://1.envato.market/9gz20e" style="background-color: #5855bd; border - اللون: rgb (138، 59، 143)؛ نصف قطر الحدود: 4 بكسل؛ نمط الحدود: صلب؛ عرض الحدود: 0 بكسل؛ حجم الصندوق: مربع الحدود؛ اللون: أبيض؛ الاتجاه: لتر؛ العرض: مضمن- كتلة؛ عائلة الخط: وراثة؛ حجم الخط: 16 بكسل؛ الحد الأقصى للعرض: 100%؛ الحشو: 10 بكسل 45 بكسل 10 بكسل 50 بكسل؛ محاذاة النص: يسار؛ سطر زخرفة النص: لا شيء؛ العرض: تلقائي؛" target="_self"><span style="box-sizing: border-box; ارتفاع الخط: 32px; فاصل الكلمات: Break-word;"><strong style ="box-sizing: border-box;"> احصل على فترة تجريبية مجانية</strong></span></a></p>
-   <ر>
+   <br>
+   <p style="text-align: center;"> <a class="bee-button-content" href="https://1.envato.market/9gz20e" style="background-color: #5855bd; border-color: rgb(138, 59, 143); border-radius: 4px; border-style: solid; border-width: 0px; box-sizing: border-box; color: white; direction: ltr; display: inline-block; font-family: inherit; font-size: 16px; max-width: 100%; padding: 10px 45px 10px 50px; text-align: left; text-decoration-line: none; width: auto;" target="_self"><span style="box-sizing: border-box; line-height: 32px; word-break: break-word;"><strong style="box-sizing: border-box;">Get a free trial period</strong></span></a></p>
+   <br>
    
-   <ر>
+   <br>
    
-   <p style="text-align: left;"> </p><p style="text-align: left;">بالإضافة إلى ذلك، يمكنك تجربة اشتراك "Envato Elements" خلال فترة تجريبية محددة للتحقق مما إذا كان يلبي توقعاتك واحتياجاتك.</p><h2 style="text-align: center;"><span style="font-size: 1.2rem; Font-weight: 800; color: #0078e8 ;">من بلدي تجربة، لماذا يجب عليك اختيار "Envato Elements"؟</span></h2><p style="text-align: left;">ما أحبه حقًا في "Envato Elements"! فهو يوفر لك مكتبة ضخمة من الصور عالية الجودة ومقاطع الفيديو المذهلة والقوالب والمزيد...</p><p style="text-align:
+   <p style="text-align: left;"> </p><p style="text-align: left;">Additionally, you can experience the "Envato Elements" subscription during a specified trial period to verify whether it meets your expectations and needs.</p><h2 style="text-align: center;"><span style="font-size: 1.2rem; font-weight: 800; color: #0078e8 ;">From my experience, why should you choose "Envato Elements"?</span></h2><p style="text-align: left;">What I really love about "Envato Elements"! It offers you a massive library of high-quality images, stunning videos, templates, and more...</p><p style="text-align: left;">These resources are not just ready-made items for use; they are a source of inspiration that can unleash and present your creativity in new and amazing ways.</p><p style="text-align: left;"><b><span style="color: #0078e8;">The best differentiating feature of "Envato Elements" is that it enables you to outshine your competitors by 99%... Isn't that amazing?</span></b></p><p style="text-align: left;">You should know that "Envato Elements" is beneficial for you, whether you aim to improve your project's quality or increase your productivity. You'll find powerful tools in "Envato Elements" that assist you in achieving your ambitions.</p><p style="text-align: left;">Thanks to the continuously updated library, the continuous improvements and new additions that cater to your changing needs will astonish you.</p><p style="text-align: left;">So, I'll say it again: Whether you're a beginner or a professional, you must use "Envato Elements" because it's like the fuel that boosts your strength. If you don't have the spark already, you won't benefit from it at all!</p><p style="text-align: left;"> you'll achieve the accomplishments you've always dreamed of through it!</p><p style="text-align: left;">I realize this might seem unbelievable or crazy, or you might think it's just empty words like those books that claim to teach Spanish in less than 5 days!</p><p style="text-align: left;">But after trying these ready-made libraries offered by "Envato Elements," your perspective will completely change!</p><p style="text-align: left;"><br /></p><div style="text-align: left;"><br /></div>
   
-  <div style="text-align: center;">
+  <div style="text-align: center;"> 
     
-    <a class="bee-button-content" href="https://1.envato.market/9gz20e" style="background-color: #5855bd; border-color: rgb(138, 59, 143); border -نصف القطر: 4 بكسل؛ نمط الحدود: صلب؛ عرض الحدود: 0 بكسل؛ حجم الصندوق: مربع الحدود؛ اللون: أبيض؛ الاتجاه: لتر؛ العرض: كتلة مضمنة؛ عائلة الخط: وراثة؛ حجم الخط: 16 بكسل ؛ الحد الأقصى للعرض: 100%؛ الحشو: 10 بكسل 45 بكسل 10 بكسل 50 بكسل؛ محاذاة النص: يسار؛ سطر زخرفة النص: لا شيء؛ العرض: تلقائي؛" target="_self"><span style="box-sizing: border-box; ارتفاع الخط: 32px; فاصل الكلمات: Break-word;"><strong style ="box-sizing: border-box;"> احصل على فترة تجريبية مجانية</strong></span></a> </div>
+    <a class="bee-button-content" href="https://1.envato.market/9gz20e" style="background-color: #5855bd; border-color: rgb(138, 59, 143); border-radius: 4px; border-style: solid; border-width: 0px; box-sizing: border-box; color: white; direction: ltr; display: inline-block; font-family: inherit; font-size: 16px; max-width: 100%; padding: 10px 45px 10px 50px; text-align: left; text-decoration-line: none; width: auto;" target="_self"><span style="box-sizing: border-box; line-height: 32px; word-break: break-word;"><strong style="box-sizing: border-box;">Get a free trial period</strong></span></a> </div>
   
   
   <!---------> <!---------> <!--------->
    <!--------->
    
-   <div class = "body">
+   <div class ="body">
    <div class="accordion">
-  <p class="section-title" style = " color : hsl(248, 10%, 40%); حجم الخط: 1.5em;">
-     أسئلة مكررة
-     </ص>
-<ر>
-<ر>
+  <p class="section-title" style = " color : hsl(248, 10%, 40%); font-size: 1.5em;">
+     Frequently Asked Questions
+     </p>
+<br>
+<br>
   <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
-      <span class="accordion__caption"><i class="far fa-lightbulb"></i>هل أصول Envato Elements آمنة؟</span>
+      <span class="accordion__caption"><i class="far fa-lightbulb"></i>Are Envato Elements assets safe?</span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <p>نحن ندرك تمامًا أن العثور على موارد إبداعية موثوقة يمكن أن يمثل تحديًا، ولهذا السبب قدموا مجموعة متنوعة من الصور والموسيقى ومقاطع الفيديو والملفات الصوتية والنماذج لتحسين مشاريعك وعملك. تشتهر Envato Elements بسمعتها الجيدة والتزامها بحماية خصوصيتك وأمن المعلومات </p>
+      <p>We fully understand that finding reliable creative resources can be a challenge, which is why they've provided a variety of images, music, videos, audio files, and templates to enhance your projects and work. Envato Elements is known for its good reputation and commitment to protecting your privacy and information security </p>
     </div>
   </div>
 
   <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
-      <span class="accordion__caption"><i class="far fa-lightbulb"></i>كيف يعمل ترخيص Envato Elements؟</span>
+      <span class="accordion__caption"><i class="far fa-lightbulb"></i>How does the Envato Elements license work?</span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <p>يتيح لك الوصول إلى مكتبة ضخمة من العناصر الإبداعية. يمكنك اختيار ما تحتاجه بحرية ودون قيود. احصل على ترخيص لاستخدام هذه العناصر في مشروعك بالشكل الذي يناسب احتياجاتك. بالإضافة إلى ذلك، لديك المرونة في إعادة استخدام العناصر، مما يوفر عليك الكثير من الوقت والجهد.
+      <p>It gives you access to a massive library of creative elements. You can choose what you need freely and without restrictions. Obtain a license to use these elements in your project in a way that suits your needs. Plus, you have the flexibility to reuse the elements, saving you a lot of time and effort.
 
-وأفضل ما في الأمر هو أنك لا داعي للقلق بشأن تفاصيل الترخيص المعقدة. تجعل Envato Elements كل شيء سهلاً ومباشرًا. ركز فقط على إضافة لمسة فنية لمشروعك، ودعهم يتعاملون مع الجوانب القانونية.</p>
+And the best part is, you don't need to worry about complex licensing details. Envato Elements makes everything easy and straightforward. Just focus on adding an artistic touch to your project, and let them handle the legal aspects.</p>
     </div>
   </div>
 
   <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
       <span class="accordion__caption"><i class="far fa-lightbulb"></i>
-        كم تبلغ تكلفة Envato Elements شهريًا؟
+        How much does Envato Elements cost per month?
       
       </span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <ص>
-        تتكلف Envato Elements ما بين 16.50 دولارًا و39.00 دولارًا شهريًا للأفراد، وما بين 29.00 دولارًا و107.50 دولارًا شهريًا للفرق، وما بين 11.50 دولارًا و33.00 دولارًا شهريًا للطلاب.
+      <p>
+        Envato Elements cost between $16.50 and $39.00 per month for individuals, between $29.00 and $107.50 per month for teams, and between $11.50 and $33.00 per month for students.
         
-      </ص>
+      </p>
     </div>
   </div>
 
   <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
       <span class="accordion__caption"><i class="far fa-lightbulb"></i>
-        هل Envato Elements تستحق العناء؟
+        Is Envato Elements worth it?
         </span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <p>نعم، Envato Elements يستحق ذلك. مع التنزيلات غير المحدودة لأكثر من 6.8 مليون صورة و3.2 مليون مقطع فيديو وأصول إبداعية أخرى، ستحصل على قيمة مذهلة مقابل أموالك بقيمة 16.50 دولارًا شهريًا. بالإضافة إلى ذلك، من خلال الاشتراك، يمكنك الوصول إلى الأصول الجديدة عند إضافتها إلى النظام الأساسي، حتى تتمكن دائمًا من البقاء على اطلاع بأحدث التصميمات والاتجاهات.
-        <ر>
-بالإضافة إلى الأصول نفسها، تقدم Envato Elements أيضًا مجموعة من الميزات والفوائد الأخرى التي يمكن أن تكون مفيدة للمصممين والمطورين وغيرهم من المحترفين المبدعين. وتشمل هذه الوصول إلى مجتمع من
+      <p>Yes, Envato Elements is worth it. With unlimited downloads of over 6.8 million images, 3.2 million videos, and other creative assets, you get incredible value for your money at $16.50 per month. Plus, with a subscription, you get access to new assets as they are added to the platform, so you can always stay up-to-date with the latest designs and trends.
+        <br>
+In addition to the assets themselves, Envato Elements also offers a range of other features and benefits that can be useful for designers, developers, and other creative professionals. These include access to a community of
       
-      </ص>
+      </p>
     </div>
   </div>
      
      
      <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
       <span class="accordion__caption"><i class="far fa-lightbulb"></i>
-هل يستخدم المحترفون عناصر Envato؟
+Do professionals use Envato elements?
 
         </span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <ص>
-        هل يمكنني استخدام عناصر Envato Elements في المشاريع التي أكملها لعميل نهائي؟ نعم يمكنك ذلك. العديد من عملائنا محترفون يستخدمون اشتراكاتهم في مشاريع العملاء
-      </ص>
+      <p>
+        Can I use Envato Elements items in projects I complete for an end-client? Yes, you can. Many of our customers are professionals using their subscriptions for client projects
+      </p>
     </div>
   </div>
      
  <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
       <span class="accordion__caption"><i class="far fa-lightbulb"></i>
-هل يمكنني استخدام عناصر Envato بعد انتهاء الاشتراك؟
+Can I use Envato elements after subscription ends?
 
         </span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <ص>
-        سيكون لديك حق الوصول إلى Envato Elements حتى اليوم الذي كان من المقرر فيه إصدار فاتورة اشتراكك التالي. بعد إلغاء اشتراكك، ستتمكن فقط من استخدام العناصر التي تم ترخيصها لاستخدام المشروع، وذلك للمشروع المحدد عندما تم ترخيصه
-      </ص>
+      <p>
+        You will have access to Envato Elements until the day your next subscription payment was due to be billed. After you've cancelled your subscription you will only be able to use items which have been licensed for Project Use, for the project specified when it was licensed
+      </p>
     </div>
   </div>
      
       <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
       <span class="accordion__caption"><i class="far fa-lightbulb"></i>
-كيفية الحصول على Envato Elements بسعر أرخص؟
+How to get Envato Elements cheaper?
 
         </span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <ص>
-        ولكن لا تقلق، لا تزال هناك عدة طرق للحصول على خصومات مع Envato Elements. أفضل طريقة هي اختيار الاشتراك السنوي بدلاً من الشهري، مما يوفر عليك 57%. بالإضافة إلى ذلك، يحصل الطلاب على خصم إضافي بنسبة 15%. من خلال الجمع بين الخصومات الطلابية والخصومات السنوية، يمكنك توفير 71% من الاشتراكات
-      </ص>
+      <p>
+        But don't worry, there are still several ways to get discounts with Envato Elements. The best way is to choose a yearly subscription instead of the monthly one, which saves you 57%. Additionally, students get an additional 15% discount. By combining student and annual discounts, you can save 71% on subscriptions
+      </p>
     </div>
   </div>
      
 
   <div class="accordion__item">
-    <زر فئة = "accordion__btn">
+    <button class="accordion__btn">
 
       <span class="accordion__caption"><i class="far fa-lightbulb"></i>
-        هل يستخدم المحترفون عناصر Envato؟
+        Do professionals use Envato elements?
         
       </span>
       <span class="accordion__icon"><i class="fa fa-plus"></i></span>
-    </زر>
+    </button>
 
     <div class="accordion__content">
-      <ص>
-      هل يمكنني استخدام عناصر Envato Elements في المشاريع التي أكملها لعميل نهائي؟ نعم يمكنك ذلك. العديد من عملائنا محترفون يستخدمون اشتراكاتهم في مشاريع العملاء
+      <p>
+      Can I use Envato Elements items in projects I complete for an end-client? Yes, you can. Many of our customers are professionals using their subscriptions for client projects
       
-      </ص>
+      </p>
     </div>
   </div>
      
@@ -695,186 +695,186 @@
    
     <!---------> <!--------->
   
-  <!--- تعليق --->
+  <!--- comment --->
   
   
   
-  <القسم>
-  <div class="محتوى تدفق الحاوية">
-    <p class="section-title" style = " color : hsl(248, 10%, 40%);font-size: 1.5em;">آراء العملاء حول تجربة Envato</p>
+  <section>
+  <div class="container flow-content ">
+    <p class="section-title" style = " color : hsl(248, 10%, 40%); font-size: 1.5em;">Customer Reviews on the Envato Experience</p>
     <ul role="list" class="grid">
-      <لي>
+      <li>
       
         <article class="card" data-visible="false">
-          <div class="card__frontflow-content">
-            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE 2ODUwMjU1ODF8&ixlib=rb-4.0.3&q=80&w=400 " alt="جون سميث (من Unsplash)" />
+          <div class="card__front flow-content">
+            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODUwMjU1ODF8&ixlib=rb-4.0.3&q=80&w=400" alt="John Smith (from Unsplash)" />
             <div class="flow-content" data-spacing="sm">
-              <p class="card__name">جون سميث</p>
+              <p class="card__name">John Smith</p>
               <!--
-              <p class="card__position">مدير المشروع</p>-->
-              <q>أنا مصمم جرافيك محترف، وأجد أن Envato Elements هي إحدى أهم أدواتي. يمكنني بسهولة الوصول إلى تصميمات مذهلة وصور عالية الجودة دون عناء البحث في مصادر متعددة. وهذا يجعل عملي أسهل حقًا</q>
+              <p class="card__position">Project Manager</p>-->
+              <q>I am a professional graphic designer, and I find that Envato Elements is one of my most important tools. I can easily access amazing designs and high-quality images without the hassle of searching through multiple sources. This truly makes my work easier</q>
             </div>
           </div>
          <!--
-          <div class="card__backflow-content">
-            <p class="card__name">جون سميث</p>
-            <q>النجاح هو جهد جماعي، وأنا فخور بأن أكون جزءًا من هذا الفريق الرائع.</q>
+          <div class="card__back flow-content">
+            <p class="card__name">John Smith</p>
+            <q>Success is a team effort, and I'm proud to be part of this incredible team.</q>
             <ul role="list" class="card__social flex-group">
-              <لي>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-twitter fa-xl"></i>
-                </أ>
-              </لي>
-              <لي>
+                </a>
+              </li>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-linkedin fa-xl"></i>
-                </أ>
-              </لي>
+                </a>
+              </li>
             </ul>
           </div>
           <footer class="card__footer">
-            <زر فئة وحدة تحكم بطاقة البيانات = "card__toggle">
-              <i class="fa-solid fa-pluscard__toggle-icon"></i>
-            </زر>
-          </تذييل>
+            <button data-card-controller class="card__toggle">
+              <i class="fa-solid fa-plus card__toggle-icon"></i>
+            </button>
+          </footer>
           -->
-        </المادة>
-      </لي>
-      <لي>
+        </article>
+      </li>
+      <li>
         <article class="card" data-visible="false">
-          <div class="card__frontflow-content">
-            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8 fDE2ODUwMzAxNzB8&ixlib=rb-4.0.3&q=80&w=400 " alt="جون سميث (من Unsplash)" />
+          <div class="card__front flow-content">
+            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODUwMzAxNzB8&ixlib=rb-4.0.3&q=80&w=400" alt="John Smith (from Unsplash)" />
             <div class="flow-content" data-spacing="sm">
-              <p class="card__name">مايكل طومسون</p>
-              <q> كمبتدئ في عالم التصميم الجرافيكي، كانت Envato Elements مصدرًا قيمًا بالنسبة لي. لقد ساعدتني القدرة على تنزيل مجموعة متنوعة من الخلفيات والرسومات والملفات الصوتية في إضافة لمسة احترافية إلى عملي </q>
+              <p class="card__name">Michael Thompson</p>
+              <q> As a beginner in the world of graphic design, Envato Elements has been a valuable resource for me. The ability to download a variety of backgrounds, graphics, and audio files has helped me add a professional touch to my work </q>
             </div>
           </div>
           <!--
-          <div class="card__backflow-content">
-            <p class="card__name">مايكل طومسون</p>
+          <div class="card__back flow-content">
+            <p class="card__name">Michael Thompson</p>
            
             <ul role="list" class="card__social flex-group">
-              <لي>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-twitter fa-xl"></i>
-                </أ>
-              </لي>
-              <لي>
+                </a>
+              </li>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-linkedin fa-xl"></i>
-                </أ>
-              </لي>
+                </a>
+              </li>
             </ul>
           </div>
           <footer class="card__footer">
-            <زر فئة وحدة تحكم بطاقة البيانات = "card__toggle">
-              <i class="fa-solid fa-pluscard__toggle-icon"></i>
-            </زر>
-          </تذييل>
+            <button data-card-controller class="card__toggle">
+              <i class="fa-solid fa-plus card__toggle-icon"></i>
+            </button>
+          </footer>
           -->
-        </المادة>
-      </لي>
-      <لي>
+        </article>
+      </li>
+      <li>
         <article class="card" data-visible="false">
-          <div class="card__frontflow-content">
-            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8 fDE2ODUwMzAyODV8&ixlib=rb-4.0.3&q=80&w=400 " alt="جون سميث (من Unsplash)" />
+          <div class="card__front flow-content">
+            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODUwMzAyODV8&ixlib=rb-4.0.3&q=80&w=400" alt="John Smith (from Unsplash)" />
             <div class="flow-content" data-spacing="sm">
-              <p class="card__name">جيسيكا لي</p>
-              <q>لم أدرك قوة Envato Elements حتى بدأت في استخدامها. الاشتراك في الخدمة كان يستحق كل بنس. فهو يجعل من السهل الوصول إلى مجموعة كبيرة من المحتوى الإبداعي دون أي متاعب</q>
+              <p class="card__name">Jessica Lee</p>
+              <q>I didn't realize the power of Envato Elements until I started using it. Subscribing to the service was worth every penny. It makes it easy to access a vast collection of creative content without any hassle</q>
             </div>
           </div>
           <!--
-          <div class="card__backflow-content">
-            <p class="card__name">جيسيكا لي</p>
+          <div class="card__back flow-content">
+            <p class="card__name">Jessica Lee</p>
            
             <ul role="list" class="card__social flex-group">
-              <لي>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-twitter fa-xl"></i>
-                </أ>
-              </لي>
-              <لي>
+                </a>
+              </li>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-linkedin fa-xl"></i>
-                </أ>
-              </لي>
+                </a>
+              </li>
             </ul>
           </div>
           <footer class="card__footer">
-            <زر فئة وحدة تحكم بطاقة البيانات = "card__toggle">
-              <i class="fa-solid fa-pluscard__toggle-icon"></i>
-            </زر>
-          </تذييل>
+            <button data-card-controller class="card__toggle">
+              <i class="fa-solid fa-plus card__toggle-icon"></i>
+            </button>
+          </footer>
           -->
-        </المادة>
-      </لي>
-      <لي>
+        </article>
+      </li>
+      <li>
         <article class="card" data-visible="false">
-          <div class="card__frontflow-content">
-            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8f DE2ODUwMjU1ODF8&ixlib=rb-4.0.3&q=80&w=400 " alt="جون سميث (من Unsplash)" />
+          <div class="card__front flow-content">
+            <img class="card__img mx-auto" src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODUwMjU1ODF8&ixlib=rb-4.0.3&q=80&w=400" alt="John Smith (from Unsplash)" />
             <div class="flow-content" data-spacing="sm">
-              <p class="card__name">مارك جونسون</p>
-              <س> لقد وفر لي الكثير من الوقت والجهد. بدلاً من البحث عن محتوى منفصل في كل مرة، يمكنني الآن الوصول إلى كل ما أحتاجه في مكان واحد. المجموعة المتنوعة والجودة العالية تجعلها خيارًا رائعًا لأي منشئ محتوى</q>
+              <p class="card__name">Mark Johnson</p>
+              <q> It has saved me a lot of time and effort. Instead of searching for separate content every time, I can now access everything I need in one place. The diverse collection and high quality make it a fantastic choice for any creator</q>
             </div>
           </div>
           <!--
-          <div class="card__backflow-content">
-            <p class="card__name">مارك جونسون</p>
+          <div class="card__back flow-content">
+            <p class="card__name">Mark Johnson</p>
            
             <ul role="list" class="card__social flex-group">
-              <لي>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-twitter fa-xl"></i>
-                </أ>
-              </لي>
-              <لي>
+                </a>
+              </li>
+              <li>
                 <a href="#">
                   <i class="fa-brands fa-linkedin fa-xl"></i>
-                </أ>
-              </لي>
+                </a>
+              </li>
             </ul>
           </div>
           <footer class="card__footer">
-            <زر فئة وحدة تحكم بطاقة البيانات = "card__toggle">
-              <i class="fa-solid fa-pluscard__toggle-icon"></i>
-            </زر>
-          </تذييل>
+            <button data-card-controller class="card__toggle">
+              <i class="fa-solid fa-plus card__toggle-icon"></i>
+            </button>
+          </footer>
           -->
-        </المادة>
-      </لي>
-      <لي>
+        </article>
+      </li>
+      <li>
       
       
-        </قسم>
+        </section>
         </div>
       <!------->
       <div style=" text-align: center;">
-     <p><span data-css="tve-u-171a3dabbd4" style="box-sizing: inherit; اللون: #0058f2; عائلة الخط: مونتسيرات; حجم الخط: 26px; وزن الخط: 700; النص- align: center;">C</span><span data-css="tve-u-171a3db0e56" style="box-sizing: inherit; color: #1c1c1c;font-family: Montserrat;font-size: 26px; وزن الخط: 700؛ محاذاة النص: المركز؛">ygri</span><span data-css="tve-u-161e462a1db" style="box-sizing: inherit; اللون: #0065ee; عائلة الخط: مونتسيرات؛ حجم الخط: 26 بكسل؛ وزن الخط: 700؛ محاذاة النص: المركز؛">د</span></p>
+     <p><span data-css="tve-u-171a3dabbd4" style="box-sizing: inherit; color: #0058f2; font-family: Montserrat; font-size: 26px; font-weight: 700; text-align: center;">C</span><span data-css="tve-u-171a3db0e56" style="box-sizing: inherit; color: #1c1c1c; font-family: Montserrat; font-size: 26px; font-weight: 700; text-align: center;">ygri</span><span data-css="tve-u-161e462a1db" style="box-sizing: inherit; color: #0065ee; font-family: Montserrat; font-size: 26px; font-weight: 700; text-align: center;">d</span></p>
      </div>
      <p style="text-align: center;"><span style="
-        تحجيم الصندوق: وراثة؛ اللون: #1c1c1c؛ عائلة الخط: مونتسيرات؛ حجم الخط: 18 بكسل؛ Font-weight: 700;">حقوق النشر 2023 | <a class="tve-froala fr-basic" data-css="tve-u-171a69b99df" href="http://uxf.cqv.mybluehost.me/privacy -policy/" style="background-color:transparent; تحجيم الصندوق: وراثة؛ اللون: #101929؛ حجم الخط: وراثة؛ وزن الخط: عادي؛ الخطوط العريضة: لا شيء؛ خط زخرفة النص: لا شيء؛ الانتقال: اللون 110 مللي ثانية سهولة الدخول والخروج 0s;">سياسة الخصوصية</a> | </span><a class="tve-froala fr-basic" href="https://seoultimatemastery.com/refund-policy /" style="box-sizing: inherit; اللون: #101929؛ عائلة الخط: مونتسيرات؛ حجم الخط: وراثة؛ الخطوط العريضة: لا شيء؛ خط زخرفة النص: لا شيء؛ انتقال: لون 110 مللي ثانية سهل الإدخال والإخراج 0s;" target="_blank">سياسة استرداد الأموال</a><span style=" box-sizing: inherit; اللون: #1c1c1c؛ عائلة الخط: مونتسيرات؛ حجم الخط: 18 بكسل؛ وزن الخط: 700;"> | </span><span data-css="tve-u-171a465e964" style=" box-sizing: inherit; اللون: #1c1c1c؛ عائلة الخط: مونتسيرات؛ حجم الخط: 18px;"> cygrid.site</span></p>
+        box-sizing: inherit; color: #1c1c1c; font-family: Montserrat; font-size: 18px; font-weight: 700;">Copyright 2023 | <a class="tve-froala fr-basic" data-css="tve-u-171a69b99df" href="http://uxf.cqv.mybluehost.me/privacy-policy/" style="background-color: transparent; box-sizing: inherit; color: #101929; font-size: inherit; font-weight: normal; outline: none; text-decoration-line: none; transition: color 110ms ease-in-out 0s;">Privacy Policy</a> | </span><a class="tve-froala fr-basic" href="https://seoultimatemastery.com/refund-policy/" style="box-sizing: inherit; color: #101929; font-family: Montserrat; font-size: inherit; outline: none; text-decoration-line: none; transition: color 110ms ease-in-out 0s;" target="_blank">Refund Policy</a><span style=" box-sizing: inherit; color: #1c1c1c; font-family: Montserrat; font-size: 18px; font-weight: 700;"> | </span><span data-css="tve-u-171a465e964" style=" box-sizing: inherit; color: #1c1c1c; font-family: Montserrat; font-size: 18px;"> cygrid.site</span></p>
 
 
-<النص البرمجي>
-// حدد جميع عناصر الأكورديون
+<script>
+// select all accordion items
 const accItems = document.querySelectorAll(".accordion__item");
 
-// أضف حدث نقرة لجميع العناصر
+// add a click event for all items
 accItems.forEach((acc) => acc.addEventListener("click", toggleAcc));
 
-وظيفة تبديلAcc () {
-  // إزالة الفئة النشطة من جميع العناصر باستثناء العنصر الحالي (هذا)
+function toggleAcc() {
+  // remove active class from all items exept the current item (this)
   accItems.forEach((item) => item != this ? item.classList.remove("accordion__item--active") : null
   );
 
-  // تبديل الفئة النشطة على العنصر الحالي
-  إذا (this.classList != "accordion__item--active") {
+  // toggle active class on current item
+  if (this.classList != "accordion__item--active") {
     this.classList.toggle("accordion__item--active");
   }
 }
 
 </script>
 
-</الجسم>
+</body>
 
 </html>
